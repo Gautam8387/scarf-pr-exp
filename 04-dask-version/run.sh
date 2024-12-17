@@ -1,18 +1,3 @@
-# while IFS= read -r version || [ -n "$version" ]; do
-#     version=$(echo "$version" | tr -d '\r')
-#     echo "Starting analysis for dask version: $version"
-#     if sudo docker run \
-#         -e DASK_VERSION="$version" \
-#         -v "$(pwd)/results:/results" \
-#         -v "$(pwd)/data:/data" \
-#         dask-analysis; then
-#         echo "Successfully completed analysis for dask version: $version"
-#     else
-#         echo "Error occurred with dask version: $version"
-#         echo "Continuing with next version..."
-#     fi
-#     echo "------------------------------------------------------------------------------------------------------------------------------------------------"
-# done < dask_versions.txt
 while IFS= read -r version || [ -n "$version" ]; do
     rm -rf output.log
     version=$(echo "$version" | tr -d '\r')
